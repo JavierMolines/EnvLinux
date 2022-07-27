@@ -16,5 +16,6 @@ alias ggm="git commit -m"
 
 # OTHERS
 alias rrbash="source ~/.bashrc"
+alias bat="batcat"
 alias vs="code ."
-alias cat="read_file"
+#alias cat="read_file"
