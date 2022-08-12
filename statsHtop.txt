@@ -1,0 +1,16 @@
+Propiedades de la herramienta HTOP
+
+------------------------------------------------------------------------------
+
+PID     : número que identifica al proceso.
+USER    : usuario que ejecutó el proceso.
+PRI     : prioridad.
+NI      : nivel de prioridad (nice)
+VIRT    : cantidad de memoria virtual utilizada (swap)
+RES     : memoria RAM en megabytes.
+SHR     : memoria compartida utilizada.
+S       : estado del proceso (Sleeping, Zombie, Running)
+CPU%    : porcentaje de CPU utilizada (procesador)
+MEM%    : porcentaje de memoria ram utilizada
+TIME+   : tiempo de vida del proceso.
+Command : comando utilizado para lanzar el proceso.

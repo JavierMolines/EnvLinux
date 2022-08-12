@@ -1,0 +1,13 @@
+Atajos de Teclado
+
+------------------------------------------------------------------------------
+
+Ctrl + Shift + c : Copia el texto seleccionado.
+Ctrl + Shift + v : Pega el texto copiado.
+Ctrl + u         : Corta todo desde el inicio de la linea hasta el cursor.
+Ctrl + k         : Corta todo del cursor al final de la linea.
+Alt  + d         : Corta la palabra que hay detras del cursor.
+Ctrl + w         : Corta la palabra que hay delante del cursor.
+Ctrl + y         : Pega el texto cortado anteriormente.
+Alt  + y         : Pega el segundo texto cortado anteriormente.
+Alt  + Ctrl + y  : Pega el primer argumento del comando anterior.
