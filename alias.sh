@@ -1,5 +1,6 @@
 # READ FILES
-alias ls="ls -al --color"
+alias ls="ls -a --color --group-directories-first"
+alias ll="ls -al --color --group-directories-first"
 
 # MOVEMENT BETWEEN FOLDERS
 alias gts="cd ~/Desktop/js/sancrisoft/"
