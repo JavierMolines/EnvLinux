@@ -8,6 +8,12 @@ alias gtj="cd ~/Desktop/js/javier/"
 alias gtb="cd ~/Desktop/bash/"
 alias gth="cd ~/"
 
+# NVM AND YARN COMMANDS
+alias ns="npm start"
+alias nrd="npm run dev"
+alias yd="yarn dev"
+alias ryd="yarn && yarn dev"
+
 # GIT COMMANDS
 alias ggpu="git push"
 alias ggp="git pull"
