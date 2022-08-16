@@ -1,0 +1,1 @@
+echo "\n# COMMAND CUSTOM AUTOLOAD\nsource $( pwd )/alias.sh\nsource $( pwd )/myFunctions.sh" >> "/home/$( whoami )/.bashrc"
