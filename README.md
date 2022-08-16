@@ -4,8 +4,24 @@
 
 <h1 align="center">EnvLinux - Mis configuraciones y notas sobre Linux</h1>
 
-## Detalles
+### Detalles
 
-Este proyecto fue creado para tener de manera centralizada y portable mis configuraciones y notas
-sobre linux para cuando me cambie de version o decida integrar alguna funcionalidad de la misma en
-distros o entornos linux que no necesariamente sean mi maquina principal.
+- Este proyecto fue creado para tener de manera centralizada y portable mis configuraciones y notas
+  sobre linux.
+
+- Con el fin de cuando me cambie de version o decida integrar alguna funcionalidad de la misma en
+  distros o entornos linux que no necesariamente sean mi maquina principal.
+
+### Instalacion
+
+```sh
+git clone https://github.com/JavierMolines/EnvLinux.git
+```
+
+```sh
+cd EnvLinux/scripts/
+```
+
+```sh
+sh autoLoad.sh
+```
