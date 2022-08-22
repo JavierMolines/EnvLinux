@@ -3,7 +3,6 @@ alias ls="ls -a --color --group-directories-first"
 alias ll="ls -al --color --group-directories-first"
 
 # MOVEMENT BETWEEN FOLDERS
-alias gts="cd ~/Desktop/js/sancrisoft/"
 alias gtj="cd ~/Desktop/js/javier/"
 alias gtb="cd ~/Desktop/bash/"
 alias gth="cd ~/"
