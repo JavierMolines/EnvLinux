@@ -22,11 +22,14 @@ distros o entornos linux que no necesariamente sean mi maquina principal.
 
 # Pre-Requisitos
 
-- KITTY (terminal)
-
 - ZSH (shell)
 
-- HTOP (software)
+- [KITTY]
+
+- [HTOP]
+
+[kitty]: https://sw.kovidgoyal.net/kitty/
+[htop]: https://htop.dev/
 
 Para que todos los programas y ejecuciones declaradas posteriomente te funcionen con exito, debes cumplir con los requisitos anterior nombrados.
 
