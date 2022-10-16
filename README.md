@@ -20,16 +20,24 @@ sobre linux.
 Con el fin de cuando me cambie de version o decida integrar alguna funcionalidad de la misma en
 distros o entornos linux que no necesariamente sean mi maquina principal.
 
-### Instalacion
+# Pre-Requisitos
+
+- KITTY (terminal)
+
+- ZSH (shell)
+
+- HTOP (software)
+
+Para que todos los programas y ejecuciones declaradas posteriomente te funcionen con exito, debes cumplir con los requisitos anterior nombrados.
+
+# Instalacion
 
 ```sh
 git clone https://github.com/JavierMolines/EnvLinux.git
 ```
 
 ```sh
-cd EnvLinux/scripts/
+cd EnvLinux/scripts/ && sh autoLoad.sh
 ```
 
-```sh
-sh autoLoad.sh
-```
+Si el comando se ejecuto exitosamente, reiniciar la consola.
