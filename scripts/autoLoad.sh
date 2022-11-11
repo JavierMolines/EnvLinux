@@ -1,7 +1,7 @@
 #!/bin/bash
 
 host="$( pwd )"
-loadScriptVar="# COMMAND CUSTOM AUTOLOAD\n"
+loadScriptVar="\n# COMMAND CUSTOM AUTOLOAD\n"
 loadScriptVar+="source $host/alias.sh\n"
 loadScriptVar+="source $host/myFunctions.sh\n"
 
