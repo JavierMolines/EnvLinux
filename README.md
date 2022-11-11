@@ -40,7 +40,7 @@ git clone https://github.com/JavierMolines/EnvLinux.git
 ```
 
 ```sh
-cd EnvLinux/scripts/ && chmod +x && ./autoLoad.sh
+chmod +x EnvLinux/scripts/autoLoad.sh && EnvLinux/scripts/autoLoad.sh
 ```
 
 Si el comando se ejecuto exitosamente, reiniciar la consola.
