@@ -12,7 +12,8 @@ stmf () {
 
 # Comments
 
-#alias dock="sudo docker" # I define it this way so as not to create a docker group.
-#alias rrbash="source ~/.bashrc"
-#alias cat="read_file"
-#xdg-open -> open file manager
+# alias dock="sudo docker" # I define it this way so as not to create a docker group.
+# alias rrbash="source ~/.bashrc"
+# alias cat="read_file"
+# xdg-open -> open file manager
+# while read p; do echo "$p"; done < ~/Desktop/bash/EnvLinux/notes/zsh-theme-clean-custom.txt > ~/.oh-my-zsh/themes/clean.zsh-theme
