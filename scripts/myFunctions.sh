@@ -1,5 +1,10 @@
 #!/bin/bash
 
+make_new_go_proyect () {
+  go mod init github.com/JavierMolines/$(basename $(pwd))
+  git init
+}
+
 read_file () {
   cat -b $1 && echo ""
 }
