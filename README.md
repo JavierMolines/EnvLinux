@@ -16,16 +16,16 @@ about linux.
 # Pre-Requisites
 
 - [ZSH]
-- [NEOVIM]
-- [KITTY]
 - [HTOP]
+- [KITTY]
+- [NEOVIM]
 
 [neovim]: https://neovim.io/
 [zsh]: https://www.zsh.org/
 [kitty]: https://sw.kovidgoyal.net/kitty/
 [htop]: https://htop.dev/
 
-Para que todos los programas y ejecuciones declaradas posteriomente te funcionen con exito, debes cumplir con los requisitos anterior nombrados.
+So that all the programs and executions declared later work successfully, you must meet the aforementioned requirements.
 
 # Install
 
