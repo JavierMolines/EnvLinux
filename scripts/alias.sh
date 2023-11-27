@@ -24,7 +24,7 @@ alias kerrmi='docker rmi $(docker images -qf "dangling=true")'
 alias vs="code ."
 alias nr="npm run"
 alias bat="batcat"
-alias jave="nano ~/.zshrc"
+alias jave="nvim ~/.zshrc"
 alias javs="bat ~/.zshrc"
 alias gi="grep -i"
 alias lgi="l | gi"
