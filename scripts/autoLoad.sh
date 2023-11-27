@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "-> EnvLinux load config..."
+
 host="$( pwd )"
 whojav="/home/$( whoami )"
 loadScriptVar="\n# COMMAND CUSTOM AUTOLOAD\n"
