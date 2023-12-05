@@ -1,8 +1,14 @@
 #!/bin/bash
 
-make_new_go_proyect () {
+make_go_project () {
   go mod init github.com/JavierMolines/$(basename $(pwd))
   git init
+}
+
+make_node_project () {
+
+  mkdir $1 && cd $1 && npm init -y && npm i -ED jav-blast-setup && npx jav-blast-setup -i && npm i
+
 }
 
 read_file () {
