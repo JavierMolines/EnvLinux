@@ -1,11 +1,12 @@
 # MOVEMENT BETWEEN FOLDERS
-prefixRoute="cd ~/Desktop"
+prefixRoute="cd ~/Source"
 
-alias gtb="$prefixRoute/bash/"
-alias gtj="$prefixRoute/javier/"
-alias gtjs="$prefixRoute/javier/js/"
 alias gtky="$prefixRoute/bash/EnvLinux/"
-alias gtgo="$prefixRoute/javier/go/src/"
+alias gtbash="$prefixRoute/bash/"
+alias gtjs="$prefixRoute/js/"
+alias gtphp="$prefixRoute/php/"
+alias gtpy="$prefixRoute/python/"
+alias gtgo="$prefixRoute/go/src/"
 
 # GIT COMMANDS
 alias ggc="git clone"
@@ -23,8 +24,9 @@ alias kerrmi='docker rmi $(docker images -qf "dangling=true")'
 # OTHERS
 alias vs="code ."
 alias nr="npm run"
-alias bat="batcat"
 alias jave="nvim ~/.zshrc"
 alias javs="bat ~/.zshrc"
 alias gi="grep -i"
 alias lgi="l | gi"
+alias py="python3"
+alias pip="~/.local/bin/pip3"
