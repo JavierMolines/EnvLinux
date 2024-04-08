@@ -22,8 +22,10 @@ alias doc="docker compose"
 alias kerrmi='docker rmi $(docker images -qf "dangling=true")'
 
 # OTHERS
+alias b="bat"
 alias vs="code ."
 alias nr="npm run"
+alias nv="nvim"
 alias jave="nvim ~/.zshrc"
 alias javs="bat ~/.zshrc"
 alias gi="grep -i"
