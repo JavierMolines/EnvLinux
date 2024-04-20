@@ -22,6 +22,9 @@ alias doc="docker compose"
 alias kerrmi='docker rmi $(docker images -qf "dangling=true")'
 
 # OTHERS
+alias spath="echo \$PATH | sed 's/:/\n/g'"
+alias ala="alacritty &"
+alias gor="go run ."
 alias b="bat"
 alias vs="code ."
 alias nr="npm run"
