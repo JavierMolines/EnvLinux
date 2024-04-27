@@ -8,8 +8,9 @@ make_node_project () {
   mkdir $1 && cd $1 && npm init -y && npm i -ED jav-blast-setup && npx jav-blast-setup -i && npm i
 }
 
-read_file () {
-  cat -b $1 && echo ""
+getMyIp () {
+  # Get IP address in Fedora
+  ip addr show | gi "192.168" | awk '{print $2}'
 }
 
 stmf () {
