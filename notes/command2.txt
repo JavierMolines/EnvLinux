@@ -1,0 +1,24 @@
+# Comandos Linux
+
+- du: Muestra el espacio que ocupa un directorio
+ - s: Suma de forma recursiva todo lo que encuentre en el directorio
+ - h: Muestra el resultado de espacio en formato humano
+
+- stat: Muestra mas info de un archivo
+
+- df: Muestra todo el espacio que consume el disco
+ - h: Muestra el resultado de espacio en formato humano
+
+- netstat: Estadisticas de RED
+ - n: No resuelve direcciones para que el comando vaya mas rapido
+ - a: Muestra todo
+ - t: Conexiones TCP
+ - u: Conexiones UDP
+ - p: Mostrar procesos
+ - nr: Muestra la tabla de ruteo
+ - i: Muestra las interfaces de red, y sus estadisticas
+
+- tcpdump: Escanea trafico de red
+ - i: Interfaz quieres analizar
+ - p: Protocolo a monitorear
+ - >port: Indicar el puerto que quieres mirar 
