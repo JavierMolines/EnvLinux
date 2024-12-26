@@ -17,8 +17,11 @@ alias gga="git add ."
 alias ggm="git commit -m"
 alias ggk="git checkout"
 alias ggb="git branch"
+alias ggfp="git fetch --prune"
+alias glog="git --no-pager log --oneline --format=\"%h %ad %s\" --date=short -n 10"
 
 # DOCKER COMMANDS
+alias dk="docker"
 alias doc="docker compose"
 alias kerrmi='docker rmi $(docker images -qf "dangling=true")'
 
@@ -37,5 +40,3 @@ alias lgi="l | gi"
 alias py="python3"
 alias pip="~/.local/bin/pip3"
 alias ffnv="cd ~/.config/nvim/"
-alias ggfp="git fetch --prune"
-alias glog="git --no-pager log --oneline --format=\"%h %ad %s\" --date=short -n 10"
