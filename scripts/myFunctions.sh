@@ -104,3 +104,44 @@ END
 
   echo "--> Project setup completed successfully."
 }
+
+upload_go_version(){
+  # Define variables
+  declare -r go_path=/usr/javier/golang/
+  name_file=$1
+
+  if [ -z "$name_file" ]; then
+    echo "Usage: upload_go_version <file_tar_name>"
+    return 1
+  fi
+
+  if [ ! -e "$name_file" ]; then
+    echo "--> Not exist $name_file, finish script"
+    return 1
+  fi
+
+  if ! command -v tar &>/dev/null; then
+    echo "--> Not installed 'tar', finish script"
+    return 1
+  fi
+
+  if ! tar -tf "$archivo" &>/dev/null; then
+    echo "--> Not valid for tar, finish script"
+    return 1
+  fi
+
+  if [ ! -d $go_path ]; then
+    echo "--> Create folder ($go_path)"
+    mkdir -p $go_path
+  fi
+
+  # Handler files and folder
+  echo "--> Extracting files"
+  tar -xzf $name_file
+  echo "--> Move files to ($go_path)"
+  mv ./go/* $go_path
+  echo "--> Deleting files temporary"
+  rm -rf ./go
+
+  echo "--> Go binaries update!."
+}
