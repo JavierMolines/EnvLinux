@@ -125,7 +125,7 @@ upload_go_version(){
     return 1
   fi
 
-  if ! tar -tf "$archivo" &>/dev/null; then
+  if ! tar -tf "$name_file" &>/dev/null; then
     echo "--> Not valid for tar, finish script"
     return 1
   fi
@@ -138,6 +138,8 @@ upload_go_version(){
   # Handler files and folder
   echo "--> Extracting files"
   tar -xzf $name_file
+  echo "--> Delete old files"
+  rm -rf /usr/javier/golang/*
   echo "--> Move files to ($go_path)"
   mv ./go/* $go_path
   echo "--> Deleting files temporary"
