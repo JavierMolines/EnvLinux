@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Variables
-MAIN_FOLDER_FILE="router.txt"
-
 # Functions
 docker_up_redis () {
   docker run --name db_redis -p 6379:6379 -d redis
@@ -15,36 +12,6 @@ make_node_project () {
 getMyIp () {
   # Get IP address in Fedora
   ip addr show | gi "192.168" | awk '{print $2}'
-}
-
-stmf () {
-  MAIN_FOLDER_ZSH="$(pwd)"
-  echo ">> Main Folder [$(echo $MAIN_FOLDER_ZSH)]"
-  echo "$MAIN_FOLDER_ZSH" > "$HOME/$MAIN_FOLDER_FILE"
-}
-
-gtmf () {
-  MAIN_FOLDER_FILE_PATH="$HOME/$MAIN_FOLDER_FILE"
-
-  if [[ ! -f "$MAIN_FOLDER_FILE_PATH" ]]; then
-    echo "Error: file $MAIN_FOLDER_FILE_PATH not fount."
-    return 1
-  fi
-
-  MAIN_FOLDER_ZSH="$(cat $MAIN_FOLDER_FILE_PATH)"
-
-  if [[ $? -ne 0 ]]; then
-    echo "Error: file $MAIN_FOLDER_FILE_PATH not read."
-    return 1
-  fi
-  
-  if [[ -z "$MAIN_FOLDER_ZSH" ]]; then
-    echo "Error: file $MAIN_FOLDER_FILE_PATH is empty."
-    return 1
-  fi
-
-  echo ">> Redirect Folder [$(echo $MAIN_FOLDER_ZSH)]"
-  cd $MAIN_FOLDER_ZSH
 }
 
 make_go_project () {
