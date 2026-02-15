@@ -26,7 +26,7 @@ alias doc="docker compose"
 alias kerrmi='docker rmi $(docker images -qf "dangling=true")'
 
 # OTHERS
-alias cpcb="xclip -selection clipboard"
+alias cpc="xclip -selection clipboard"
 alias spath="echo \$PATH | sed 's/:/\n/g'"
 alias ala="alacritty &"
 alias gor="go run ."
