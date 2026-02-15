@@ -12,18 +12,28 @@ local function get_biome()
   return nil
 end
 
-local function notify_missing()
-  LazyVim.notify("Biome no encontrado en node_modules/.bin", {
+local function notify_missing(msg)
+  LazyVim.notify(msg, {
     title = "nvim-lint",
     level = vim.log.levels.WARN,
   })
+end
+
+local function getSupportedFiletypes()
+  return {
+    javascript = { "biome" },
+    typescript = { "biome" },
+    javascriptreact = { "biome" },
+    typescriptreact = { "biome" },
+    json = { "biome" },
+    jsonc = { "biome" },
+  }
 end
 
 return {
   {
     -- Formatter (conform.nvim)
     "stevearc/conform.nvim",
-    ft = { "typescript", "typescriptreact", "json", "jsonc" },
     opts = function(_, opts)
       local conform = require("conform")
 
@@ -34,14 +44,7 @@ return {
         stdin = true,
       }
 
-      opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft or {}, {
-        javascript = { "biome" },
-        typescript = { "biome" },
-        javascriptreact = { "biome" },
-        typescriptreact = { "biome" },
-        json = { "biome" },
-        jsonc = { "biome" },
-      })
+      opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft or {}, getSupportedFiletypes())
 
       local group = vim.api.nvim_create_augroup("conform_biome_autofmt", { clear = true })
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -61,7 +64,6 @@ return {
   {
     -- Linter (nvim-lint)
     "mfussenegger/nvim-lint",
-    ft = { "typescript", "typescriptreact", "json", "jsonc" },
     config = function()
       local lint = require("lint")
 
@@ -166,25 +168,26 @@ return {
         end,
       }
 
-      lint.linters_by_ft = vim.tbl_deep_extend("force", lint.linters_by_ft or {}, {
-        javascript = { "biome" },
-        typescript = { "biome" },
-        javascriptreact = { "biome" },
-        typescriptreact = { "biome" },
-        json = { "biome" },
-        jsonc = { "biome" },
-      })
+      lint.linters_by_ft = vim.tbl_deep_extend("force", lint.linters_by_ft or {}, getSupportedFiletypes())
 
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
         callback = function(args)
-          if not get_biome() then
-            notify_missing()
+          local ft = vim.bo[args.buf].filetype
+          local supported_filetypes = getSupportedFiletypes()
+          if not supported_filetypes[ft] then
             return
           end
+
+          if not get_biome() then
+            notify_missing("Biome not found. Please ensure it's in your project node_modules.")
+            return
+          end
+
           local name = vim.api.nvim_buf_get_name(args.buf)
           if name == "" or vim.fn.filereadable(name) == 0 then
             return
           end
+
           lint.try_lint()
         end,
       })
