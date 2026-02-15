@@ -1,27 +1,33 @@
+local function get_root()
+  local util = require("lspconfig.util")
+  return util.root_pattern("biome.json", "package.json", ".git")(vim.fn.getcwd()) or vim.fn.getcwd()
+end
+
+local function get_biome()
+  local root = get_root()
+  local biome = root .. "/node_modules/.bin/biome"
+  if vim.fn.executable(biome) == 1 then
+    return biome
+  end
+  return nil
+end
+
+local function notify_missing()
+  LazyVim.notify("Biome no encontrado en node_modules/.bin", {
+    title = "nvim-lint",
+    level = vim.log.levels.WARN,
+  })
+end
+
 return {
   {
     -- Formatter (conform.nvim)
     "stevearc/conform.nvim",
     ft = { "typescript", "typescriptreact", "json", "jsonc" },
     opts = function(_, opts)
-      local util = require("lspconfig.util")
       local conform = require("conform")
 
-      local function get_root()
-        return util.root_pattern("biome.json", "package.json", ".git")(vim.fn.getcwd()) or vim.fn.getcwd()
-      end
-
-      local function get_biome()
-        local root = get_root()
-        local biome = root .. "/node_modules/.bin/biome"
-        if vim.fn.executable(biome) == 1 then
-          return biome
-        end
-        return nil
-      end
-
       opts.formatters = opts.formatters or {}
-
       opts.formatters.biome = {
         command = get_biome,
         args = { "format", "--stdin-file-path", "$FILENAME" },
@@ -58,27 +64,6 @@ return {
     ft = { "typescript", "typescriptreact", "json", "jsonc" },
     config = function()
       local lint = require("lint")
-      local util = require("lspconfig.util")
-
-      local function get_root()
-        return util.root_pattern("biome.json", "package.json", ".git")(vim.fn.getcwd()) or vim.fn.getcwd()
-      end
-
-      local function get_biome()
-        local root = get_root()
-        local biome = root .. "/node_modules/.bin/biome"
-        if vim.fn.executable(biome) == 1 then
-          return biome
-        end
-        return nil
-      end
-
-      local function notify_missing()
-        LazyVim.notify("Biome no encontrado en node_modules/.bin", {
-          title = "nvim-lint",
-          level = vim.log.levels.WARN,
-        })
-      end
 
       lint.linters.biome = {
         cmd = get_biome,
@@ -190,42 +175,17 @@ return {
         jsonc = { "biome" },
       })
 
-      local lint_timer = nil
-      local function schedule_lint(buf)
-        if lint_timer then
-          vim.fn.timer_stop(lint_timer)
-        end
-        lint_timer = vim.fn.timer_start(2000, function()
-          vim.schedule(function()
-            if not vim.api.nvim_buf_is_valid(buf) then
-              return
-            end
-            local name = vim.api.nvim_buf_get_name(buf)
-            if name == "" or vim.fn.filereadable(name) == 0 then
-              return
-            end
-            if vim.bo[buf].modified then
-              pcall(vim.api.nvim_buf_set_var, buf, "conform_skip_autoformat", true)
-              vim.cmd("silent update")
-              pcall(vim.api.nvim_buf_set_var, buf, "conform_skip_autoformat", false)
-            end
-            lint.try_lint()
-          end)
-        end)
-      end
-
-      vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI", "BufEnter" }, {
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
         callback = function(args)
           if not get_biome() then
             notify_missing()
             return
           end
-          local buf = args.buf
-          local name = vim.api.nvim_buf_get_name(buf)
+          local name = vim.api.nvim_buf_get_name(args.buf)
           if name == "" or vim.fn.filereadable(name) == 0 then
             return
           end
-          schedule_lint(buf)
+          lint.try_lint()
         end,
       })
     end,
