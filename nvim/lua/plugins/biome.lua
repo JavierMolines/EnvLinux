@@ -195,7 +195,7 @@ return {
         if lint_timer then
           vim.fn.timer_stop(lint_timer)
         end
-        lint_timer = vim.fn.timer_start(1000, function()
+        lint_timer = vim.fn.timer_start(2000, function()
           vim.schedule(function()
             if not vim.api.nvim_buf_is_valid(buf) then
               return
