@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="200" alt="Terminal Logo" src="https://cdn.pixabay.com/photo/2013/07/13/13/41/bash-161382_960_720.png">
+    <img width="300" alt="Terminal Logo" src="https://raw.githubusercontent.com/JavierMolines/EnvLinux/refs/heads/master/imgs/logoReadme.avif">
 </p>
 
 <h1 align="center">EnvLinux - My config and scripts in Linux</h1>
